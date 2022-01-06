@@ -14,6 +14,10 @@ namespace SportsStore.Models
 
             if (context.Database.GetPendingMigrations().Any())
             {
+                context.Database.Migrate();
+            }
+            if(!context.Products.Any())
+            {
                 context.Products.AddRange(
                     new Product
                     {
